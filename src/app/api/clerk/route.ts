@@ -10,6 +10,7 @@ import { verifyWebhook } from '@clerk/nextjs/webhooks'
 
 
 export async function POST(req: Request) {
+  console.log("Creating User? v1")
   try {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
@@ -17,6 +18,7 @@ export async function POST(req: Request) {
     const eventType = evt.type
    
     if (eventType === 'user.created') {
+      console.log("Create user event called")
       const { id, email_addresses, image_url, username, first_name, last_name } = evt.data;
       const user = {
         clerk_id: id,
@@ -28,6 +30,7 @@ export async function POST(req: Request) {
       }
 
       try {
+        console.log("Creating user? v2")
         const newUserId = await QUERIES.createUser(user)
         if (newUserId) {
           const client = await clerkClient();
