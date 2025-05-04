@@ -18,6 +18,7 @@ export async function POST(req: Request) {
     const eventType = evt.type
 
     if (eventType === 'user.created') {
+      console.log("Creating User?")
 
       const { id, email_addresses, image_url, username, first_name, last_name } = evt.data;
       const user = {
@@ -54,3 +55,12 @@ export async function POST(req: Request) {
   }
 }
 
+/*
+
+⨯ 
+[Error: No response is returned from route handler '/vercel/path0/src/app/api/webhook/clerk/route.ts'. Ensure you return a `Response` or a `NextResponse` in all branches of your handler.]
+
+
+
+
+*/
