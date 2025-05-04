@@ -3,7 +3,7 @@ import {type WebhookEvent } from '@clerk/nextjs/server'
 import { clerkClient } from '@clerk/nextjs/server';
 
 import { NextResponse } from 'next/server'
-import QUERIES from '../../../server/queries';
+import QUERIES from '../../../../server/queries';
 
 
 import { verifyWebhook } from '@clerk/nextjs/webhooks'
